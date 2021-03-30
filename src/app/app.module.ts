@@ -1,10 +1,12 @@
 
 import {Injectable, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Socket, SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
+import {SharedModule} from './shared/shared.module';
+
+
 
 @Injectable()
 export class SocketChat extends Socket {
@@ -26,12 +28,13 @@ export class SocketStock extends Socket {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SocketIoModule,
+    SharedModule
   ],
   providers: [SocketStock, SocketChat],
   bootstrap: [AppComponent]
