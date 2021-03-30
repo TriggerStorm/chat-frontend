@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {StockService} from './shared/stock.service';
+import {StockDto} from './shared/stock.dto';
 
 @Component({
   selector: 'app-stock',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock.component.scss']
 })
 export class StockComponent implements OnInit {
-
-  constructor() { }
+  stocks: StockDto[];
+  test = 'awqeqqeqe';
+  constructor(private stockService: StockService) { }
 
   ngOnInit(): void {
+    this.allStocks();
   }
 
+  allStocks(): void{
+    this.stockService.listenForAllStocksSuccess()
+      .subscribe(allStocks => {
+        this.stocks = allStocks;
+        console.log(this.stocks.length);
+      });
+  }
 }
