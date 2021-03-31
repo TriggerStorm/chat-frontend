@@ -1,13 +1,13 @@
-<section>
-<div class="container" style="padding-left: 50px; padding-top: 50px">
+<section style="background-color: bisque">
+<div class="container" style="padding-left: 50px; padding-top: 50px; background-color: palevioletred">
   Stocks:
-  <div class="col-md-6" *ngFor="let stocks of stocks as stockDtos">
-      <div style="padding-top: 10px; padding-left: 80px" (click)="onClick(stocks.id)">
+  <div style="background-color: blue" class ="row">
+  <div style="background-color: yellow" class="col-md-6 col-xl-6 col-sm-6" *ngFor="let stocks of stocks as stockDtos">
+      <div style="padding-top: 10px; " (click)="onClick(stocks.id)">
         {{stocks.name}} {{stocks.value}}
       </div>
   </div>
-</div>
-<div class="col-md-6" style="padding-left: 600px"*ngIf="stockSelect != null">
+<div style="background-color: blueviolet" class="col-md-6 col-xl-6 col-sm-6" *ngIf="stockSelect != null">
   <card>
     Name: {{stockSelect.name}}
   </card>
@@ -18,6 +18,8 @@
     Value: <input (change)="newVal($event)" type="number" [valueAsNumber]="stockSelect.value">
   </div>
   <div (click)="updateStock(stockSelect)"></div>
+</div>
+  </div>
 </div>
 </section>
 
