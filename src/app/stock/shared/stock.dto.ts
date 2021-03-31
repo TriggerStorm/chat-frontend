@@ -3,4 +3,5 @@ export interface StockDto {
   name: string;
   value: number;
   description: string;
+  selected: boolean;
 }

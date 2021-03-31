@@ -1,14 +1,24 @@
+<section>
 <div class="container" style="padding-left: 50px; padding-top: 50px">
-  <div class="row">
-    <div class="col-3">
-      <h3 *ngFor="let stocks of stocks as stockDtos">
-        {{stocks.name}}  {{stocks.value}}
-      </h3>
-    </div>
-    <div class="col-3">
-      <h3 *ngFor="let stocks of stocks as stockDtos">
-        {{stocks.value}}
-      </h3>
-    </div>
+  Stocks:
+  <div class="col-md-6" *ngFor="let stocks of stocks as stockDtos">
+      <div style="padding-top: 10px; padding-left: 80px" (click)="onClick(stocks.id)">
+        {{stocks.name}} {{stocks.value}}
+      </div>
   </div>
 </div>
+<div class="col-md-6" style="padding-left: 600px"*ngIf="stockSelect != null">
+  <card>
+    Name: {{stockSelect.name}}
+  </card>
+  <div style="padding-top: 10px">
+    Description: {{stockSelect.description}}
+  </div>
+  <div style="padding-top: 10px" class="input-group-sm" type="number">
+    Value: <input (change)="newVal($event)" type="number" [valueAsNumber]="stockSelect.value">
+  </div>
+  <div (click)="updateStock(stockSelect)"></div>
+</div>
+</section>
+
+

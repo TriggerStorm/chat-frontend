@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Socket, SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 import {SharedModule} from './shared/shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -34,7 +35,8 @@ export class SocketStock extends Socket {
     BrowserModule,
     AppRoutingModule,
     SocketIoModule,
-    SharedModule
+    SharedModule,
+    NoopAnimationsModule
   ],
   providers: [SocketStock, SocketChat],
   bootstrap: [AppComponent]
